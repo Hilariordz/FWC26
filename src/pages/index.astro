@@ -1,82 +1,11 @@
 ---
-// index.astro - Página de Inicio del Mundial 2026
+import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title="Mundial 2026 | Inicio">
-  <main class="bg-slate-950 text-white min-h-screen overflow-x-hidden">
-    
-    <!-- 1. HERO SECTION (ANIMADO) -->
-    <section class="hero-container relative h-screen flex flex-col justify-center items-center px-4">
-      <div class="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-transparent to-slate-950 z-0"></div>
-      
-      <h1 class="hero-title text-6xl md:text-9xl font-black tracking-tighter text-center z-10 opacity-0 transform translate-y-10">
-        COPA MUNDIAL <br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-white to-red-500">2026</span>
-      </h1>
-      
-      <p class="hero-subtitle text-lg md:text-2xl text-slate-400 mt-6 z-10 opacity-0">
-        Canadá • México • Estados Unidos
-      </p>
-    </section>
-
-    <!-- 2. SECCIÓN DE SEDES (EFECTO SCROLL) -->
-    <section class="sedes-section min-h-screen py-20 px-8 max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-      
-      <!-- Tarjeta México -->
-      <div class="sede-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl transform opacity-0 scale-95">
-        <img src="/images/estadio-azteca.webp" alt="Estadio Azteca" class="w-full h-64 object-cover" loading="lazy" />
-        <div class="p-6">
-          <h3 class="text-2xl font-bold">México</h3>
-          <p class="text-slate-400 mt-2">Sede del partido inaugural en el histórico Estadio Azteca.</p>
-        </div>
-      </div>
-
-      <!-- Tarjeta USA -->
-      <div class="sede-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl transform opacity-0 scale-95">
-        <img src="/images/sofi-stadium.webp" alt="SoFi Stadium" class="w-full h-64 object-cover" loading="lazy" />
-        <div class="p-6">
-          <h3 class="text-2xl font-bold">Estados Unidos</h3>
-          <p class="text-slate-400 mt-2">11 ciudades albergarán la mayor cantidad de encuentros del torneo.</p>
-        </div>
-      </div>
-
-      <!-- Tarjeta Canadá -->
-      <div class="sede-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl transform opacity-0 scale-95">
-        <img src="/images/bmo-field.webp" alt="BMO Field" class="w-full h-64 object-cover" loading="lazy" />
-        <div class="p-6">
-          <h3 class="text-2xl font-bold">Canadá</h3>
-          <p class="text-slate-400 mt-2">Vancouver y Toronto debutan como anfitriones de la fiesta grande.</p>
-        </div>
-      </div>
-
-    </section>
-  </main>
+<Layout>
+	<Welcome />
 </Layout>
-
-<!-- 3. SCRIPT DE ANIMACIONES (GSAP) -->
-<script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-  // Registrar el plugin de Scroll para activar animaciones al bajar
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Animación del Hero (Entrada fluida al cargar la página)
-  const tl = gsap.timeline();
-  tl.to('.hero-title', { opacity: 1, y: 0, duration: 1.2, ease: 'power4.out' })
-    .to('.hero-subtitle', { opacity: 1, duration: 0.8 }, '-=0.6');
-
-  // Animación de las Sedes (Aparecen secuencialmente al hacer Scroll)
-  gsap.to('.sede-card', {
-    opacity: 1,
-    scale: 1,
-    duration: 0.8,
-    stagger: 0.2, // Retraso entre cada tarjeta para efecto cascada
-    ease: 'back.out(1.7)',
-    scrollTrigger: {
-      trigger: '.sedes-section',
-      start: 'top 75%', // Comienza la animación cuando la sección entra al 75% de la pantalla
-    }
-  });
-</script>
