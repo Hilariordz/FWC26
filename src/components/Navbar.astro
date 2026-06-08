@@ -1,0 +1,103 @@
+<header class="nav-oficial fixed top-0 left-0 w-full z-50 bg-[#2D107A] border-b border-white/10 h-20 flex items-center opacity-0 transform -translate-y-2">
+  <div class="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex items-center justify-between relative h-full">
+    
+    <div class="flex items-center gap-6 h-full relative">
+      
+      <div class="absolute top-0 left-0 bg-[#2D107A] pt-4 px-3 pb-3 rounded-b-[20px] shadow-[0_12px_24px_rgba(0,0,0,0.4)] flex flex-col items-center justify-start w-24 md:w-28 z-50">
+        <a href="/" class="block w-full group">
+          <img 
+            src="/images/logo.png" 
+            alt="Logo FIFA Monterrey 2026" 
+            class="w-full h-auto transform group-hover:scale-102 transition-transform duration-300"
+            loading="eager"
+          />
+        </a>
+      </div>
+
+      <div class="w-24 md:w-28 h-full"></div>
+
+      <div class="flex items-center gap-1.5 text-xs font-bold tracking-wider text-white">
+        <button class="hover:text-slate-300 transition-colors uppercase">En</button>
+        <span class="text-white/40">|</span>
+        <button class="text-[#00F5D4] uppercase">Es</button>
+      </div>
+    </div>
+
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-black text-white/80">
+      <a href="/sedes" class="hover:text-white transition-colors uppercase tracking-tight">Sedes / Ciudades</a>
+      <a href="/grupos" class="hover:text-white transition-colors uppercase tracking-tight">Grupos</a>
+      <a href="/partidos" class="hover:text-white transition-colors uppercase tracking-tight">Calendario / Partidos</a>
+      <a href="/jugadores" class="hover:text-white transition-colors uppercase tracking-tight">Ultima Jugada</a>
+    </nav>
+    <!---
+     <nav class="hidden lg:flex items-center gap-6 text-sm font-black text-white/80">
+      <a href="/venues" class="hover:text-white transition-colors uppercase tracking-tight">Sedes / Ciudades</a>
+      <a href="/groups" class="hover:text-white transition-colors uppercase tracking-tight">Grupos</a>
+      <a href="/matches" class="hover:text-white transition-colors uppercase tracking-tight">Calendario / Partidos</a>
+      <a href="/statistics" class="hover:text-white transition-colors uppercase tracking-tight">Ultima Jugada</a>
+    </nav>
+    --->
+
+    <div class="flex items-center gap-4 md:gap-6">
+      <button id="menu-toggle" class="lg:hidden text-white focus:outline-none p-1 flex flex-col gap-1.5 justify-center items-center w-8 h-8 relative z-50">
+        <span class="line-1 w-6 h-0.5 bg-white rounded transition-transform duration-300"></span>
+        <span class="line-2 w-6 h-0.5 bg-white rounded transition-opacity duration-300"></span>
+        <span class="line-3 w-6 h-0.5 bg-white rounded transition-transform duration-300"></span>
+      </button>
+    </div>
+
+  </div>
+
+  <div id="full-menu" class="fixed inset-0 bg-[#2D107A]/98 backdrop-blur-md z-40 flex flex-col justify-center items-center gap-6 text-2xl md:text-3xl font-black text-white/80 pointer-events-none opacity-0">
+    <a href="/sedes" class="menu-item hover:text-white transition-colors uppercase tracking-tight">Sedes / Ciudades</a>
+    <a href="/grupos" class="menu-item hover:text-white transition-colors uppercase tracking-tight">Grupos</a>
+    <a href="/partidos" class="menu-item hover:text-white transition-colors uppercase tracking-tight">Calendario / Partidos</a>
+    <a href="/estadios" class="menu-item hover:text-white transition-colors uppercase tracking-tight">Estadios</a>
+    <a href="/estadisticas" class="menu-item hover:text-white transition-colors uppercase tracking-tight">Estadísticas</a>
+  </div>
+</header>
+
+<script>
+  import { gsap } from 'gsap';
+
+  gsap.to('.nav-oficial', {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: 'power2.out'
+  });
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const fullMenu = document.getElementById('full-menu');
+  const line1 = document.querySelector('.line-1');
+  const line2 = document.querySelector('.line-2');
+  const line3 = document.querySelector('.line-3');
+  
+  let isOpen = false;
+
+  menuToggle?.addEventListener('click', () => {
+    isOpen = !isOpen;
+
+    if (isOpen) {
+      fullMenu?.classList.remove('pointer-events-none');
+      
+      gsap.to(line1, { rotation: 45, y: 7, duration: 0.25 });
+      gsap.to(line2, { opacity: 0, duration: 0.15 });
+      gsap.to(line3, { rotation: -45, y: -7, duration: 0.25 });
+
+      gsap.to(fullMenu, { opacity: 1, duration: 0.35, ease: 'power2.out' });
+      gsap.fromTo('.menu-item', 
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: 'power3.out', delay: 0.1 }
+      );
+    } else {
+      fullMenu?.classList.add('pointer-events-none');
+
+      gsap.to(line1, { rotation: 0, y: 0, duration: 0.25 });
+      gsap.to(line2, { opacity: 1, duration: 0.15 });
+      gsap.to(line3, { rotation: 0, y: 0, duration: 0.25 });
+
+      gsap.to(fullMenu, { opacity: 0, duration: 0.3, ease: 'power2.in' });
+    }
+  });
+</script>

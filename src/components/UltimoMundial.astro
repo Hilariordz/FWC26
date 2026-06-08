@@ -1,0 +1,144 @@
+---
+const players = [
+  { name: "Lionel Messi",        country: "Argentina",   age: 38, caps: 187, goals: 109, img: "/images/jugadores/messi.webp",        flag: "🇦🇷", accentColor: "#38bdf8", borderClass: "hover:border-sky-400",    shadowClass: "hover:shadow-[0_0_60px_rgba(56,189,248,0.2)]",    textClass: "group-hover:text-sky-300",    lineClass: "bg-sky-400"    },
+  { name: "Cristiano Ronaldo",   country: "Portugal",    age: 41, caps: 219, goals: 130, img: "/images/jugadores/cr7.webp",           flag: "🇵🇹", accentColor: "#10b981", borderClass: "hover:border-emerald-400", shadowClass: "hover:shadow-[0_0_60px_rgba(16,185,129,0.2)]",    textClass: "group-hover:text-emerald-300", lineClass: "bg-emerald-400" },
+  { name: "Luka Modrić",         country: "Croacia",     age: 40, caps: 174, goals: 24,  img: "/images/jugadores/modric.webp",        flag: "🇭🇷", accentColor: "#ef4444", borderClass: "hover:border-red-400",     shadowClass: "hover:shadow-[0_0_60px_rgba(239,68,68,0.2)]",     textClass: "group-hover:text-red-300",    lineClass: "bg-red-400"    },
+  { name: "Robert Lewandowski",  country: "Polonia",     age: 37, caps: 148, goals: 82,  img: "/images/jugadores/lewandowski.webp",   flag: "🇵🇱", accentColor: "#f8fafc", borderClass: "hover:border-slate-200",   shadowClass: "hover:shadow-[0_0_60px_rgba(248,250,252,0.12)]",  textClass: "group-hover:text-slate-100",  lineClass: "bg-slate-200"  },
+  { name: "Kevin De Bruyne",     country: "Bélgica",     age: 34, caps: 108, goals: 28,  img: "/images/jugadores/debruyne.webp",      flag: "🇧🇪", accentColor: "#f59e0b", borderClass: "hover:border-amber-400",   shadowClass: "hover:shadow-[0_0_60px_rgba(245,158,11,0.2)]",    textClass: "group-hover:text-amber-300",  lineClass: "bg-amber-400"  },
+  { name: "Neymar Jr",           country: "Brasil",      age: 34, caps: 128, goals: 79,  img: "/images/jugadores/neymar.webp",        flag: "🇧🇷", accentColor: "#22c55e", borderClass: "hover:border-green-400",   shadowClass: "hover:shadow-[0_0_60px_rgba(34,197,94,0.2)]",     textClass: "group-hover:text-green-300",  lineClass: "bg-green-400"  },
+  { name: "Guillermo Ochoa",     country: "México",      age: 40, caps: 145, goals: 0,   img: "/images/jugadores/ochoa.webp",         flag: "🇲🇽", accentColor: "#059669", borderClass: "hover:border-emerald-500", shadowClass: "hover:shadow-[0_0_60px_rgba(5,150,105,0.2)]",     textClass: "group-hover:text-emerald-300", lineClass: "bg-emerald-500" },
+  { name: "Luis Suárez",         country: "Uruguay",     age: 39, caps: 142, goals: 68,  img: "/images/jugadores/suarez.webp",        flag: "🇺🇾", accentColor: "#0ea5e9", borderClass: "hover:border-sky-400",     shadowClass: "hover:shadow-[0_0_60px_rgba(14,165,233,0.2)]",    textClass: "group-hover:text-sky-300",    lineClass: "bg-sky-400"    },
+  { name: "Manuel Neuer",        country: "Alemania",    age: 40, caps: 124, goals: 0,   img: "/images/jugadores/neuer.webp",         flag: "🇩🇪", accentColor: "#eab308", borderClass: "hover:border-yellow-400",  shadowClass: "hover:shadow-[0_0_60px_rgba(234,179,8,0.2)]",     textClass: "group-hover:text-yellow-300", lineClass: "bg-yellow-400" },
+  { name: "Olivier Giroud",      country: "Francia",     age: 39, caps: 137, goals: 57,  img: "/images/jugadores/giroud.webp",        flag: "🇫🇷", accentColor: "#2563eb", borderClass: "hover:border-blue-500",    shadowClass: "hover:shadow-[0_0_60px_rgba(37,99,235,0.2)]",     textClass: "group-hover:text-blue-300",   lineClass: "bg-blue-500"   },
+  { name: "Keylor Navas",        country: "Costa Rica",  age: 39, caps: 127, goals: 0,   img: "/images/jugadores/navas.webp",         flag: "🇨🇷", accentColor: "#dc2626", borderClass: "hover:border-red-500",     shadowClass: "hover:shadow-[0_0_60px_rgba(220,38,38,0.2)]",     textClass: "group-hover:text-red-300",    lineClass: "bg-red-500"    },
+  { name: "Antoine Griezmann",   country: "Francia",     age: 35, caps: 137, goals: 44,  img: "/images/jugadores/griezmann.webp",     flag: "🇫🇷", accentColor: "#2563eb", borderClass: "hover:border-blue-500",    shadowClass: "hover:shadow-[0_0_60px_rgba(37,99,235,0.2)]",     textClass: "group-hover:text-blue-300",   lineClass: "bg-blue-500"   },
+];
+---
+
+<section class="relative bg-[#020618] text-white w-full py-28 overflow-hidden font-sans antialiased">
+
+  <!-- Fondo decorativo sutil -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#D4AF37]/[0.03] rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[100px]"></div>
+    <!-- Líneas de campo decorativas -->
+    <div class="absolute inset-0 opacity-[0.015]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, white 79px, white 80px)"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+
+    <!-- Header Editorial -->
+    <div class="flex flex-col items-center text-center mb-20">
+      <h2 class="text-6xl md:text-8xl font-black uppercase leading-none tracking-tighter mb-6">
+        <span class="block text-white">El Último</span>
+        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-amber-200 to-[#D4AF37]">
+          Baile
+        </span>
+      </h2>
+
+      <!-- Contador de leyendas -->
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-5xl font-black text-white/10 leading-none">{players.length}</span>
+        <div class="text-left">
+          <p class="text-xs font-bold tracking-widest uppercase text-[#D4AF37]">Leyendas</p>
+          <p class="text-xs text-white/30 uppercase tracking-wider">en su último mundial</p>
+        </div>
+      </div>
+
+      <p class="text-white/40 text-sm md:text-base font-light max-w-xl leading-relaxed">
+        Homenaje a las leyendas vivas del fútbol que disputarán sus últimos noventa minutos en la máxima cita del deporte rey.
+      </p>
+    </div>
+
+    <!-- Grid de tarjetas -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+      {players.map((player, index) => (
+        <div class={`group relative bg-[#0f0f11] border border-white/[0.06] overflow-hidden rounded-2xl cursor-pointer transition-all duration-500 ease-out ${player.borderClass} ${player.shadowClass}`}
+             style="aspect-ratio: 3/4">
+
+          <!-- Imagen con overlay -->
+          <div class="absolute inset-0">
+            <img
+              src={player.img}
+              alt={player.name}
+              class="w-full h-full object-cover object-top transition-all duration-700 ease-out scale-105 group-hover:scale-110 grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-90"
+              loading="lazy"
+            />
+            <!-- Gradiente base siempre presente -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/50 to-transparent"></div>
+            <!-- Gradiente extra en hover para legibilidad -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+          </div>
+
+          <!-- Número de índice (decorativo, esquina sup izq) -->
+          <div class="absolute top-4 left-4 z-20">
+            <span class="text-[10px] font-black text-white/20 group-hover:text-white/40 transition-colors duration-300 tabular-nums">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+          </div>
+
+          <!-- Badge "Última Copa" + bandera (esquina sup der) -->
+          <div class="absolute top-3 right-3 z-20 flex flex-col items-end gap-1.5">
+            <div class="text-xl leading-none filter drop-shadow-lg">
+              {player.flag}
+            </div>
+            <span class="text-[8px] font-black tracking-widest uppercase text-white/0 group-hover:text-white/50 transition-all duration-300 bg-white/5 backdrop-blur-sm px-1.5 py-0.5 rounded border border-white/10 whitespace-nowrap">
+              Última Copa
+            </span>
+          </div>
+
+          <!-- Contenido inferior -->
+          <div class="absolute bottom-0 left-0 right-0 z-20 p-4 md:p-5">
+
+            <!-- País -->
+            <p class="text-[9px] font-bold tracking-[0.25em] uppercase text-white/50 mb-1">
+              {player.country}
+            </p>
+
+            <!-- Nombre -->
+            <h3 class={`text-base md:text-lg font-black uppercase leading-tight tracking-tight text-white transition-colors duration-300 ${player.textClass}`}>
+              {player.name}
+            </h3>
+
+            <!-- Línea separadora animada -->
+            <div class={`h-px ${player.lineClass} mt-2 mb-2 w-0 group-hover:w-full transition-all duration-500 ease-out opacity-60`}></div>
+
+            <!-- Stats: caps + goals (aparecen en hover) -->
+            <div class="flex items-center gap-3 overflow-hidden max-h-0 group-hover:max-h-10 transition-all duration-500 ease-out">
+              <div class="text-center">
+                <p class="text-[10px] font-black text-white/80 tabular-nums">{player.caps}</p>
+                <p class="text-[8px] uppercase tracking-widest text-white/30">Partidos</p>
+              </div>
+              {player.goals > 0 && (
+                <div class="w-px h-6 bg-white/10"></div>
+                <div class="text-center">
+                  <p class="text-[10px] font-black text-white/80 tabular-nums">{player.goals}</p>
+                  <p class="text-[8px] uppercase tracking-widest text-white/30">Goles</p>
+                </div>
+              )}
+              <div class="w-px h-6 bg-white/10"></div>
+              <div class="text-center">
+                <p class="text-[10px] font-black text-white/80 tabular-nums">{player.age}</p>
+                <p class="text-[8px] uppercase tracking-widest text-white/30">Años</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Brillo de borde en hover -->
+          <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+               style={`box-shadow: inset 0 0 0 1px ${player.accentColor}22`}></div>
+
+        </div>
+      ))}
+    </div>
+
+    <!-- Footer de sección -->
+    <div class="flex items-center justify-center gap-4 mt-16">
+      <div class="h-px flex-1 max-w-xs bg-gradient-to-r from-transparent to-white/10"></div>
+      <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/20">FIFA World Cup 2026</span>
+      <div class="h-px flex-1 max-w-xs bg-gradient-to-l from-transparent to-white/10"></div>
+    </div>
+
+  </div>
+</section>

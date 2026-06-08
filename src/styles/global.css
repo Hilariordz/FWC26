@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+html, body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg-primary);
+}
+
+:root {
+  --bg-primary: #1A0B40;   
+  --bg-surface: #2D107A;    
+  --bg-surface-light: #3D17A8; 
+
+  --accent-cyan: #00F5D4;   
+  --accent-pink: #FF007F;   
+  --accent-purple: #8A2BE2; 
+  --accent-yellow: #FFEE00; 
+
+  --text-main: #FFFFFF;     
+  --text-muted: #B3A4DE;  
+  --border-white-op: rgba(255, 255, 255, 0.1); 
+  
+}

@@ -1,0 +1,90 @@
+<div class="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#09090b]">
+  
+  <video 
+    autoplay 
+    loop 
+    playsinline
+    preload="auto"
+    class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+  >
+    <source src="/images/World Cup 2026 - Official Intro.mp4" type="video/mp4" />
+  </video>
+
+</div>
+<div class="w-full bg-[#4c1d95] text-white py-12 font-sans antialiased">
+  <div class="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
+    
+    <h2 class="text-lg md:text-xl font-black uppercase tracking-widest text-white mb-8">
+      FWC26™ PATADA INICIAL EN
+    </h2>
+
+    <div class="flex flex-wrap justify-center gap-6 md:gap-12">
+      
+      <div class="flex flex-col items-center min-w-[70px]">
+        <span id="years" class="text-4xl md:text-6xl font-black uppercase tracking-tight tabular-nums">00</span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-[#00F5D4] mt-2">Años</span>
+      </div>
+
+      <div class="flex flex-col items-center min-w-[70px]">
+        <span id="days" class="text-4xl md:text-6xl font-black uppercase tracking-tight tabular-nums">00</span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-[#00F5D4] mt-2">Días</span>
+      </div>
+
+      <div class="flex flex-col items-center min-w-[70px]">
+        <span id="hours" class="text-4xl md:text-6xl font-black uppercase tracking-tight tabular-nums">00</span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-[#00F5D4] mt-2">Horas</span>
+      </div>
+
+      <div class="flex flex-col items-center min-w-[70px]">
+        <span id="minutes" class="text-4xl md:text-6xl font-black uppercase tracking-tight tabular-nums">00</span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-[#00F5D4] mt-2">Minutos</span>
+      </div>
+
+      <div class="flex flex-col items-center min-w-[70px]">
+        <span id="seconds" class="text-4xl md:text-6xl font-black uppercase tracking-tight tabular-nums text-white">00</span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-[#00F5D4] mt-2">Segundos</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const targetDate = new Date(2026, 5, 11, 12, 0, 0).getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+      document.getElementById('years').innerText = "00";
+      document.getElementById('days').innerText = "00";
+      document.getElementById('hours').innerText = "00";
+      document.getElementById('minutes').innerText = "00";
+      document.getElementById('seconds').innerText = "00";
+      return;
+    }
+
+    const msInSecond = 1000;
+    const msInMinute = msInSecond * 60;
+    const msInHour = msInMinute * 60;
+    const msInDay = msInHour * 24;
+    const msInYear = msInDay * 365;
+
+    const textYears = Math.floor(difference / msInYear);
+    const textDays = Math.floor((difference % msInYear) / msInDay);
+    const textHours = Math.floor((difference % msInDay) / msInHour);
+    const textMinutes = Math.floor((difference % msInHour) / msInMinute);
+    const textSeconds = Math.floor((difference % msInMinute) / msInSecond);
+
+    document.getElementById('years').innerText = textYears.toString().padStart(2, '0');
+    document.getElementById('days').innerText = textDays.toString().padStart(2, '0');
+    document.getElementById('hours').innerText = textHours.toString().padStart(2, '0');
+    document.getElementById('minutes').innerText = textMinutes.toString().padStart(2, '0');
+    document.getElementById('seconds').innerText = textSeconds.toString().padStart(2, '0');
+  }
+
+  updateCountdown();
+  
+  setInterval(updateCountdown, 1000);
+</script>
