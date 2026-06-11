@@ -1,0 +1,421 @@
+---
+const groups = [
+  {
+    letter: "A",
+    color: "#22c55e",
+    teams: [
+      { name: "México", flag: "mx" },
+      { name: "Sudáfrica", flag: "za" },
+      { name: "Corea del Sur", flag: "kr" },
+      { name: "Chequia", flag: "cz" },
+    ],
+  },
+  {
+    letter: "B",
+    color: "#ef4444",
+    teams: [
+      { name: "Canadá", flag: "ca" },
+      { name: "Bosnia y Herz.", flag: "ba" },
+      { name: "Catar", flag: "qa" },
+      { name: "Suiza", flag: "ch" },
+    ],
+  },
+  {
+    letter: "C",
+    color: "#f97316",
+    teams: [
+      { name: "Brasil", flag: "br" },
+      { name: "Marruecos", flag: "ma" },
+      { name: "Haití", flag: "ht" },
+      { name: "Escocia", flag: "gb-sct" },
+    ],
+  },
+  {
+    letter: "D",
+    color: "#3b82f6",
+    teams: [
+      { name: "EE.UU.", flag: "us" },
+      { name: "Paraguay", flag: "py" },
+      { name: "Australia", flag: "au" },
+      { name: "Turquía", flag: "tr" },
+    ],
+  },
+  {
+    letter: "E",
+    color: "#8b5cf6",
+    teams: [
+      { name: "Alemania", flag: "de" },
+      { name: "Curazao", flag: "cw" },
+      { name: "Costa de Marfil", flag: "ci" },
+      { name: "Ecuador", flag: "ec" },
+    ],
+  },
+  {
+    letter: "F",
+    color: "#a3e635",
+    teams: [
+      { name: "Países Bajos", flag: "nl" },
+      { name: "Japón", flag: "jp" },
+      { name: "Suecia", flag: "se" },
+      { name: "Túnez", flag: "tn" },
+    ],
+  },
+  {
+    letter: "G",
+    color: "#ec4899",
+    teams: [
+      { name: "Bélgica", flag: "be" },
+      { name: "Egipto", flag: "eg" },
+      { name: "Irán", flag: "ir" },
+      { name: "Nueva Zelanda", flag: "nz" },
+    ],
+  },
+  {
+    letter: "H",
+    color: "#06b6d4",
+    teams: [
+      { name: "España", flag: "es" },
+      { name: "Cabo Verde", flag: "cv" },
+      { name: "Arabia Saudita", flag: "sa" },
+      { name: "Uruguay", flag: "uy" },
+    ],
+  },
+  {
+    letter: "I",
+    color: "#a855f7",
+    teams: [
+      { name: "Francia", flag: "fr" },
+      { name: "Senegal", flag: "sn" },
+      { name: "Irak", flag: "iq" },
+      { name: "Noruega", flag: "no" },
+    ],
+  },
+  {
+    letter: "J",
+    color: "#1f2937",
+    teams: [
+      { name: "Argentina", flag: "ar" },
+      { name: "Argelia", flag: "dz" },
+      { name: "Austria", flag: "at" },
+      { name: "Jordania", flag: "jo" },
+    ],
+  },
+  {
+    letter: "K",
+    color: "#f97316",
+    teams: [
+      { name: "Portugal", flag: "pt" },
+      { name: "Congo RD", flag: "cd" },
+      { name: "Uzbekistán", flag: "uz" },
+      { name: "Colombia", flag: "co" },
+    ],
+  },
+  {
+    letter: "L",
+    color: "#38bdf8",
+    teams: [
+      { name: "Inglaterra", flag: "gb-eng" },
+      { name: "Croacia", flag: "hr" },
+      { name: "Ghana", flag: "gh" },
+      { name: "Panamá", flag: "pa" },
+    ],
+  },
+];
+
+const leftGroups = groups.slice(0, 6);
+const rightGroups = groups.slice(6, 12);
+---
+
+<section class="wc-section">
+  <!-- Title -->
+  <div class="wc-title-wrap">
+   <br>
+   <br>
+    <div class="wc-badge">FASE DE GRUPOS</div>
+  </div>
+
+  <div class="wc-layout">
+    <div class="wc-col">
+      {leftGroups.map((group) => (
+        <div class="wc-group" style={`--gcolor: ${group.color}`}>
+          <div class="wc-group-letter">{group.letter}</div>
+          <ul class="wc-teams">
+            {group.teams.map((team) => (
+              <li class="wc-team">
+                <img
+                  src={`/flags/${team.flag}.svg`}
+                  alt={team.name}
+                  class="wc-flag"
+                />
+                <span class="wc-name">{team.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="wc-center">
+      <div class="trophy-glow"></div>
+      <img
+        src="/images/logo.png"
+        alt="FIFA World Cup Trophy"
+        class="wc-trophy"
+      />
+    </div>
+
+    <div class="wc-col wc-col-right">
+      {rightGroups.map((group) => (
+        <div class="wc-group wc-group-right" style={`--gcolor: ${group.color}`}>
+          <ul class="wc-teams">
+            {group.teams.map((team) => (
+              <li class="wc-team wc-team-right">
+                <span class="wc-name">{team.name}</span>
+                <img
+                  src={`/flags/${team.flag}.svg`}
+                  alt={team.name}
+                  class="wc-flag"
+                />
+              </li>
+            ))}
+          </ul>
+          <div class="wc-group-letter">{group.letter}</div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .wc-section {
+    background: #0a0a0a;
+    min-height: 100vh;
+    padding: 48px 20px 60px;
+    font-family: 'Arial Black', 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .wc-title-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .wc-title {
+    color: #ffffff;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .wc-title sup {
+    font-size: 0.45em;
+    vertical-align: super;
+    letter-spacing: 0;
+  }
+
+  .wc-badge {
+    background: #b4ff00;
+    color: #000;
+    font-weight: 900;
+    font-size: 0.9rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 24px;
+    border-radius: 6px;
+    border: 2px solid #000;
+  }
+
+  /* ── Main 3-column layout ── */
+  .wc-layout {
+    display: grid;
+    grid-template-columns: 1fr 160px 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 1000px;
+    align-items: center;
+  }
+
+  /* ── Columns ── */
+  .wc-col {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  /* ── Group card ── */
+  .wc-group {
+    display: flex;
+    align-items: stretch;
+    border-radius: 7px;
+    overflow: hidden;
+    border: 2px solid var(--gcolor);
+    background: #111;
+  }
+
+  .wc-group-letter {
+    background: var(--gcolor);
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 900;
+    width: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Teams list ── */
+  .wc-teams {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #111;
+  }
+
+  .wc-team {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 7px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.15s;
+  }
+
+  .wc-team:last-child {
+    border-bottom: none;
+  }
+
+  .wc-team:hover {
+    background: rgba(255,255,255,0.06);
+  }
+
+  .wc-flag {
+    width: 20px;
+    height: 14px;
+    object-fit: cover;
+    border-radius: 2px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  }
+
+  .wc-name {
+    font-size: 0.56rem;
+    font-weight: 700;
+    color: #e5e5e5;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ── Right column mirror ── */
+  .wc-col-right .wc-group {
+    flex-direction: row-reverse;
+  }
+
+  .wc-team-right {
+    flex-direction: row-reverse;
+    text-align: right;
+    justify-content: flex-start;
+  }
+
+  .wc-team-right .wc-name {
+    text-align: right;
+  }
+
+  /* ── Center trophy ── */
+  .wc-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 8px;
+  }
+
+  .trophy-glow {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,150,50,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .wc-trophy {
+    width: 130px;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 20px rgba(200,160,60,0.45));
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .wc-layout {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .wc-center {
+      order: -1;
+    }
+
+    .wc-trophy {
+      width: 80px;
+    }
+
+    .wc-col-right .wc-group {
+      flex-direction: row;
+    }
+
+    .wc-team-right {
+      flex-direction: row;
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    .wc-team-right .wc-name {
+      text-align: left;
+    }
+
+    .wc-col-right .wc-group .wc-group-letter {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .wc-section {
+      padding: 24px 10px 40px;
+    }
+    .wc-name {
+      font-size: 0.55rem;
+    }
+    .wc-flag {
+      width: 18px;
+      height: 12px;
+    }
+    .wc-group-letter {
+      width: 30px;
+      min-width: 30px;
+      font-size: 1.1rem;
+    }
+  }
+</style>

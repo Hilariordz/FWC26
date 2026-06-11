@@ -3,15 +3,20 @@
   <video 
     autoplay 
     loop 
+    muted 
     playsinline
     preload="auto"
+    poster="https://res.cloudinary.com/de7zfuasb/video/upload/v1780981394/World_Cup_2026_-_Official_Intro_lxduf5.jpg"
     class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
   >
-    <source src="/images/World Cup 2026 - Official Intro.mp4" type="video/mp4" />
+    <source src="https://res.cloudinary.com/de7zfuasb/video/upload/q_auto:good/vc_vp9/br_2m/v1780981394/World_Cup_2026_-_Official_Intro_lxduf5.webm" type="video/webm" />
+    
+    <source src="https://res.cloudinary.com/de7zfuasb/video/upload/q_auto:good/vc_h264/br_2m/v1780981394/World_Cup_2026_-_Official_Intro_lxduf5.mp4" type="video/mp4" />
   </video>
 
 </div>
-<div class="w-full bg-[#4c1d95] text-white py-12 font-sans antialiased">
+
+<div class="w-full bg-[#4c1d95] text-white py-12 font-sans antialiased relative z-10">
   <div class="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
     
     <h2 class="text-lg md:text-xl font-black uppercase tracking-widest text-white mb-8">
@@ -85,6 +90,5 @@
   }
 
   updateCountdown();
-  
   setInterval(updateCountdown, 1000);
 </script>
