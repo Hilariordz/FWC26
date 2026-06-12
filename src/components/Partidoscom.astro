@@ -1,0 +1,360 @@
+---
+// Datos de partidos del Mundial 2026 basados en el calendario oficial FIFA
+interface Partido {
+  hora: string;
+  equipo1: string;
+  bandera1: string | null;
+  gol1?: number;
+  equipo2: string;
+  bandera2: string | null;
+  gol2?: number;
+  grupo: string;
+  estadio: string;
+  ciudad: string;
+  finalizado: boolean;
+}
+
+interface Ronda {
+  fecha: string;
+  partidos: Partido[];
+}
+
+interface Fase {
+  nombre: string;
+  rondas: Ronda[];
+}
+
+const fases: Fase[] = [
+  {
+    nombre: "Primera Fase",
+    rondas: [
+      {
+        fecha: "Jueves 11 Jun 2026",
+        partidos: [
+          { hora: "FINAL", equipo1: "México", bandera1: "mx", gol1: 2, equipo2: "Sudáfrica", bandera2: "za", gol2: 0, grupo: "Grupo A", estadio: "Estadio Ciudad de México", ciudad: "Ciudad de México", finalizado: true },
+          { hora: "FINAL", equipo1: "Rep. de Corea", bandera1: "kr", gol1: 2, equipo2: "Chequia", bandera2: "cz", gol2: 1, grupo: "Grupo A", estadio: "Estadio Guadalajara", ciudad: "Guadalajara", finalizado: true },
+        ]
+      },
+      {
+        fecha: "Viernes 12 Jun 2026",
+        partidos: [
+          { hora: "13:00", equipo1: "Canadá", bandera1: "ca", equipo2: "Bosnia y Herz.", bandera2: "ba", grupo: "Grupo B", estadio: "Estadio de Toronto", ciudad: "Toronto", finalizado: false },
+          { hora: "19:00", equipo1: "EE. UU.", bandera1: "us", equipo2: "Paraguay", bandera2: "py", grupo: "Grupo D", estadio: "Estadio Los Ángeles", ciudad: "Los Ángeles", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Sábado 13 Jun 2026",
+        partidos: [
+          { hora: "13:00", equipo1: "Catar", bandera1: "qa", equipo2: "Suiza", bandera2: "ch", grupo: "Grupo B", estadio: "Estadio Bahía de SF", ciudad: "San Francisco", finalizado: false },
+          { hora: "16:00", equipo1: "Brasil", bandera1: "br", equipo2: "Marruecos", bandera2: "ma", grupo: "Grupo C", estadio: "Estadio NY/Nueva Jersey", ciudad: "Nueva Jersey", finalizado: false },
+          { hora: "19:00", equipo1: "Haití", bandera1: "ht", equipo2: "Escocia", bandera2: "gb-sct", grupo: "Grupo C", estadio: "Estadio Boston", ciudad: "Boston", finalizado: false },
+          { hora: "22:00", equipo1: "Australia", bandera1: "au", equipo2: "Turquía", bandera2: "tr", grupo: "Grupo D", estadio: "Estadio BC Place", ciudad: "Vancouver", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Domingo 14 Jun 2026",
+        partidos: [
+          { hora: "11:00", equipo1: "Alemania", bandera1: "de", equipo2: "Curazao", bandera2: "cw", grupo: "Grupo E", estadio: "Estadio Houston", ciudad: "Houston", finalizado: false },
+          { hora: "14:00", equipo1: "Países Bajos", bandera1: "nl", equipo2: "Japón", bandera2: "jp", grupo: "Grupo F", estadio: "Estadio Dallas", ciudad: "Dallas", finalizado: false },
+          { hora: "17:00", equipo1: "Costa de Marfil", bandera1: "ci", equipo2: "Ecuador", bandera2: "ec", grupo: "Grupo E", estadio: "Estadio Filadelfia", ciudad: "Filadelfia", finalizado: false },
+          { hora: "20:00", equipo1: "Suecia", bandera1: "se", equipo2: "Túnez", bandera2: "tn", grupo: "Grupo F", estadio: "Estadio Monterrey", ciudad: "Monterrey", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Lunes 15 Jun 2026",
+        partidos: [
+          { hora: "10:00", equipo1: "España", bandera1: "es", equipo2: "Islas Cabo Verde", bandera2: "cv", grupo: "Grupo H", estadio: "Estadio Atlanta", ciudad: "Atlanta", finalizado: false },
+          { hora: "13:00", equipo1: "Bélgica", bandera1: "be", equipo2: "Egipto", bandera2: "eg", grupo: "Grupo G", estadio: "Estadio Seattle", ciudad: "Seattle", finalizado: false },
+          { hora: "16:00", equipo1: "Arabia Saudí", bandera1: "sa", equipo2: "Uruguay", bandera2: "uy", grupo: "Grupo H", estadio: "Estadio Miami", ciudad: "Miami", finalizado: false },
+          { hora: "19:00", equipo1: "RI de Irán", bandera1: "ir", equipo2: "Nueva Zelanda", bandera2: "nz", grupo: "Grupo G", estadio: "Estadio Los Ángeles", ciudad: "Los Ángeles", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Martes 16 Jun 2026",
+        partidos: [
+          { hora: "13:00", equipo1: "Francia", bandera1: "fr", equipo2: "Senegal", bandera2: "sn", grupo: "Grupo I", estadio: "Estadio NY/Nueva Jersey", ciudad: "Nueva Jersey", finalizado: false },
+          { hora: "16:00", equipo1: "Irak", bandera1: "iq", equipo2: "Noruega", bandera2: "no", grupo: "Grupo I", estadio: "Estadio Boston", ciudad: "Boston", finalizado: false },
+          { hora: "19:00", equipo1: "Argentina", bandera1: "ar", equipo2: "Argelia", bandera2: "dz", grupo: "Grupo J", estadio: "Estadio Kansas City", ciudad: "Kansas City", finalizado: false },
+          { hora: "22:00", equipo1: "Austria", bandera1: "at", equipo2: "Jordania", bandera2: "jo", grupo: "Grupo J", estadio: "Estadio Bahía de SF", ciudad: "San Francisco", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Miércoles 17 Jun 2026",
+        partidos: [
+          { hora: "11:00", equipo1: "Portugal", bandera1: "pt", equipo2: "RD Congo", bandera2: "cd", grupo: "Grupo K", estadio: "Estadio Houston", ciudad: "Houston", finalizado: false },
+          { hora: "14:00", equipo1: "Inglaterra", bandera1: "gb-eng", equipo2: "Croacia", bandera2: "hr", grupo: "Grupo L", estadio: "Estadio Dallas", ciudad: "Dallas", finalizado: false },
+          { hora: "17:00", equipo1: "Ghana", bandera1: "gh", equipo2: "Panamá", bandera2: "pa", grupo: "Grupo L", estadio: "Estadio Toronto", ciudad: "Toronto", finalizado: false },
+          { hora: "20:00", equipo1: "Uzbekistán", bandera1: "uz", equipo2: "Colombia", bandera2: "co", grupo: "Grupo K", estadio: "Estadio Ciudad de México", ciudad: "Ciudad de México", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Jueves 18 Jun 2026",
+        partidos: [
+          { hora: "10:00", equipo1: "Chequia", bandera1: "cz", equipo2: "Sudáfrica", bandera2: "za", grupo: "Grupo A", estadio: "Estadio Atlanta", ciudad: "Atlanta", finalizado: false },
+          { hora: "13:00", equipo1: "Suiza", bandera1: "ch", equipo2: "Bosnia y Herz.", bandera2: "ba", grupo: "Grupo B", estadio: "Estadio Los Ángeles", ciudad: "Los Ángeles", finalizado: false },
+          { hora: "16:00", equipo1: "Canadá", bandera1: "ca", equipo2: "Catar", bandera2: "qa", grupo: "Grupo B", estadio: "Estadio BC Place", ciudad: "Vancouver", finalizado: false },
+          { hora: "19:00", equipo1: "México", bandera1: "mx", equipo2: "Rep. de Corea", bandera2: "kr", grupo: "Grupo A", estadio: "Estadio Guadalajara", ciudad: "Guadalajara", finalizado: false },
+        ]
+      },
+    ]
+  },
+  {
+    nombre: "Dieciseisavos de Final",
+    rondas: [
+      {
+        fecha: "Domingo 28 Jun 2026",
+        partidos: [
+          { hora: "13:00", equipo1: "2°A", bandera1: null, equipo2: "2°B", bandera2: null, grupo: "Dieciseisavos", estadio: "Estadio Los Ángeles", ciudad: "Los Ángeles", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Lunes 29 Jun 2026",
+        partidos: [
+          { hora: "11:00", equipo1: "1°C", bandera1: null, equipo2: "2°F", bandera2: null, grupo: "Dieciseisavos", estadio: "Estadio Houston", ciudad: "Houston", finalizado: false },
+          { hora: "14:30", equipo1: "1°E", bandera1: null, equipo2: "3°ABCDF", bandera2: null, grupo: "Dieciseisavos", estadio: "Estadio Boston", ciudad: "Boston", finalizado: false },
+          { hora: "19:00", equipo1: "1°F", bandera1: null, equipo2: "2°C", bandera2: null, grupo: "Dieciseisavos", estadio: "Estadio Monterrey", ciudad: "Monterrey", finalizado: false },
+        ]
+      },
+    ]
+  },
+  {
+    nombre: "Octavos de Final",
+    rondas: [
+      {
+        fecha: "Sábado 4 Jul 2026",
+        partidos: [
+          { hora: "11:00", equipo1: "W73", bandera1: null, equipo2: "W75", bandera2: null, grupo: "Octavos", estadio: "Estadio Houston", ciudad: "Houston", finalizado: false },
+          { hora: "15:00", equipo1: "W74", bandera1: null, equipo2: "W77", bandera2: null, grupo: "Octavos", estadio: "Estadio Filadelfia", ciudad: "Filadelfia", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Domingo 5 Jul 2026",
+        partidos: [
+          { hora: "14:00", equipo1: "W76", bandera1: null, equipo2: "W78", bandera2: null, grupo: "Octavos", estadio: "Estadio NY/Nueva Jersey", ciudad: "Nueva Jersey", finalizado: false },
+          { hora: "18:00", equipo1: "W79", bandera1: null, equipo2: "W80", bandera2: null, grupo: "Octavos", estadio: "Estadio Ciudad de México", ciudad: "Ciudad de México", finalizado: false },
+        ]
+      },
+    ]
+  },
+  {
+    nombre: "Cuartos de Final",
+    rondas: [
+      {
+        fecha: "Jueves 9 Jul 2026",
+        partidos: [
+          { hora: "14:00", equipo1: "W89", bandera1: null, equipo2: "W90", bandera2: null, grupo: "Cuartos", estadio: "Estadio Boston", ciudad: "Boston", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Viernes 10 Jul 2026",
+        partidos: [
+          { hora: "13:00", equipo1: "W93", bandera1: null, equipo2: "W94", bandera2: null, grupo: "Cuartos", estadio: "Estadio Los Ángeles", ciudad: "Los Ángeles", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Sábado 11 Jul 2026",
+        partidos: [
+          { hora: "15:00", equipo1: "W91", bandera1: null, equipo2: "W92", bandera2: null, grupo: "Cuartos", estadio: "Estadio Miami", ciudad: "Miami", finalizado: false },
+          { hora: "19:00", equipo1: "W95", bandera1: null, equipo2: "W96", bandera2: null, grupo: "Cuartos", estadio: "Estadio Kansas City", ciudad: "Kansas City", finalizado: false },
+        ]
+      },
+    ]
+  },
+  {
+    nombre: "Semifinales",
+    rondas: [
+      {
+        fecha: "Martes 14 Jul 2026",
+        partidos: [
+          { hora: "13:00", equipo1: "W97", bandera1: null, equipo2: "W98", bandera2: null, grupo: "Semifinal", estadio: "Estadio Dallas", ciudad: "Dallas", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Miércoles 15 Jul 2026",
+        partidos: [
+          { hora: "13:00", equipo1: "W99", bandera1: null, equipo2: "W100", bandera2: null, grupo: "Semifinal", estadio: "Estadio Atlanta", ciudad: "Atlanta", finalizado: false },
+        ]
+      },
+    ]
+  },
+  {
+    nombre: "Final",
+    rondas: [
+      {
+        fecha: "Sábado 18 Jul 2026",
+        partidos: [
+          { hora: "15:00", equipo1: "RU101", bandera1: null, equipo2: "RU102", bandera2: null, grupo: "3er Lugar", estadio: "Estadio Miami", ciudad: "Miami", finalizado: false },
+        ]
+      },
+      {
+        fecha: "Domingo 19 Jul 2026",
+        partidos: [
+          { hora: "13:00", equipo1: "W101", bandera1: null, equipo2: "W102", bandera2: null, grupo: "🏆 Final", estadio: "Estadio NY/Nueva Jersey", ciudad: "Nueva Jersey", finalizado: false },
+        ]
+      },
+    ]
+  },
+];
+
+const fasesNombres = fases.map(f => f.nombre);
+---
+
+<section class="partidos-section w-full min-h-screen bg-[#0a0a1a] text-white pt-28 pb-20">
+  <div class="max-w-[900px] mx-auto px-4 md:px-6">
+
+    <!-- Header -->
+    <div class="mb-10">
+      <p class="text-[#00F5D4] text-xs font-bold tracking-[0.2em] uppercase mb-2">Copa Mundial de la FIFA 2026™</p>
+      <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tight leading-none">Calendario <span class="text-[#00F5D4]">&</span> Resultados</h1>
+      <p class="text-white/40 text-sm mt-3">Hora local · Todos los partidos</p>
+    </div>
+
+    <!-- Filtros de fase -->
+    <div class="fase-tabs flex flex-wrap gap-2 mb-10 sticky top-20 z-30 py-3 bg-[#0a0a1a]/95 backdrop-blur-sm border-b border-white/10">
+      {fasesNombres.map((nombre, i) => (
+        <button
+          data-fase={i}
+          class={`fase-btn text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full border transition-all duration-200 ${i === 0 ? 'bg-[#00F5D4] text-[#0a0a1a] border-[#00F5D4]' : 'bg-transparent text-white/50 border-white/20 hover:border-white/60 hover:text-white'}`}
+        >
+          {nombre}
+        </button>
+      ))}
+    </div>
+
+    <!-- Bloques de fases -->
+    {fases.map((fase, fi) => (
+      <div data-fase-content={fi} class={fi === 0 ? '' : 'hidden'}>
+        {fase.rondas.map((ronda) => (
+          <div class="mb-10">
+            <!-- Cabecera de fecha -->
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-1.5 h-6 bg-[#00F5D4] rounded-full"></div>
+              <h2 class="text-sm font-black uppercase tracking-widest text-white/70">{ronda.fecha}</h2>
+            </div>
+
+            <!-- Tarjetas de partidos -->
+            <div class="flex flex-col gap-3">
+              {ronda.partidos.map((partido) => (
+                <div class={`partido-card group relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer
+                  ${partido.finalizado
+                    ? 'bg-gradient-to-r from-[#1a1a3a] to-[#12122a] border-[#00F5D4]/30 hover:border-[#00F5D4]/60'
+                    : 'bg-[#11112a] border-white/8 hover:border-white/20'}`}>
+                  
+                  <!-- Accent line top -->
+                  <div class={`absolute top-0 left-0 right-0 h-px ${partido.finalizado ? 'bg-gradient-to-r from-[#00F5D4]/50 via-[#00F5D4]/20 to-transparent' : 'bg-gradient-to-r from-white/10 via-white/5 to-transparent'}`}></div>
+
+                  <div class="px-5 py-4 flex items-center gap-4">
+
+                    <!-- Hora / Estado -->
+                    <div class="w-16 flex-shrink-0 text-center">
+                      {partido.finalizado ? (
+                        <span class="inline-block text-[10px] font-black tracking-wider text-[#00F5D4] bg-[#00F5D4]/10 border border-[#00F5D4]/30 px-2 py-1 rounded-full uppercase">Final</span>
+                      ) : (
+                        <span class="text-white/60 text-sm font-bold tabular-nums">{partido.hora}</span>
+                      )}
+                    </div>
+
+                    <!-- Equipo 1 -->
+                    <div class="flex-1 flex items-center gap-3 justify-end">
+                      <span class={`text-sm md:text-base font-black text-right leading-tight ${partido.finalizado ? 'text-white' : 'text-white/80'}`}>
+                        {partido.equipo1}
+                      </span>
+                      {partido.bandera1 ? (
+                        <img
+                          src={`/flags/${partido.bandera1}.svg`}
+                          alt={partido.equipo1}
+                          class="w-8 h-6 object-cover rounded-sm flex-shrink-0 shadow-md"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div class="w-8 h-6 rounded-sm bg-white/10 flex items-center justify-center flex-shrink-0">
+                          <span class="text-[8px] text-white/30 font-bold">TBD</span>
+                        </div>
+                      )}
+                    </div>
+
+                    <!-- Marcador o VS -->
+                    <div class="w-20 flex-shrink-0 text-center">
+                      {partido.finalizado ? (
+                        <div class="flex items-center justify-center gap-2">
+                          <span class="text-2xl font-black text-white tabular-nums">{partido.gol1}</span>
+                          <span class="text-white/30 text-xs font-bold">-</span>
+                          <span class="text-2xl font-black text-white tabular-nums">{partido.gol2}</span>
+                        </div>
+                      ) : (
+                        <div class="flex flex-col items-center">
+                          <span class="text-[10px] font-black tracking-widest text-white/20 uppercase">vs</span>
+                        </div>
+                      )}
+                    </div>
+
+                    <!-- Equipo 2 -->
+                    <div class="flex-1 flex items-center gap-3">
+                      {partido.bandera2 ? (
+                        <img
+                          src={`/flags/${partido.bandera2}.svg`}
+                          alt={partido.equipo2}
+                          class="w-8 h-6 object-cover rounded-sm flex-shrink-0 shadow-md"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div class="w-8 h-6 rounded-sm bg-white/10 flex items-center justify-center flex-shrink-0">
+                          <span class="text-[8px] text-white/30 font-bold">TBD</span>
+                        </div>
+                      )}
+                      <span class={`text-sm md:text-base font-black leading-tight ${partido.finalizado ? 'text-white' : 'text-white/80'}`}>
+                        {partido.equipo2}
+                      </span>
+                    </div>
+
+                    <!-- Info estadio (desktop) -->
+                    <div class="hidden lg:flex flex-col items-end w-40 flex-shrink-0 gap-0.5">
+                      <span class="text-[10px] font-bold text-[#00F5D4]/70 uppercase tracking-wider">{partido.grupo}</span>
+                      <span class="text-[11px] text-white/40 text-right leading-tight">{partido.estadio}</span>
+                      <span class="text-[10px] text-white/25">{partido.ciudad}</span>
+                    </div>
+
+                  </div>
+
+                  <!-- Info estadio (mobile) -->
+                  <div class="lg:hidden px-5 pb-3 flex items-center justify-between gap-2 border-t border-white/5 mt-0 pt-2">
+                    <span class="text-[10px] font-bold text-[#00F5D4]/70 uppercase tracking-wider">{partido.grupo}</span>
+                    <span class="text-[10px] text-white/35">{partido.estadio} · {partido.ciudad}</span>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    ))}
+
+  </div>
+</section>
+
+<script>
+  const faseBtns = document.querySelectorAll<HTMLButtonElement>('.fase-btn');
+  const faseContents = document.querySelectorAll<HTMLElement>('[data-fase-content]');
+
+  faseBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.fase;
+
+      faseBtns.forEach(b => {
+        b.classList.remove('bg-[#00F5D4]', 'text-[#0a0a1a]', 'border-[#00F5D4]');
+        b.classList.add('bg-transparent', 'text-white/50', 'border-white/20');
+      });
+      btn.classList.add('bg-[#00F5D4]', 'text-[#0a0a1a]', 'border-[#00F5D4]');
+      btn.classList.remove('bg-transparent', 'text-white/50', 'border-white/20');
+
+      faseContents.forEach(c => {
+        if (c.dataset.faseContent === target) {
+          c.classList.remove('hidden');
+        } else {
+          c.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

@@ -1,22 +1,29 @@
 ---
 const players = [
-  { name: "Lionel Messi",        country: "Argentina",   age: 38, caps: 187, goals: 109, img: "/images/messi.webp",        flag: "🇦🇷" },
-  { name: "Cristiano Ronaldo",   country: "Portugal",    age: 41, caps: 219, goals: 130, img: "/images/cr.webp",           flag: "🇵🇹" },
-  { name: "Luka Modrić",         country: "Croacia",     age: 40, caps: 174, goals: 24,  img: "/images/modric.webp",        flag: "🇭🇷" },
-  { name: "Robert Lewandowski",  country: "Polonia",     age: 37, caps: 148, goals: 82,  img: "/images/lewandowski.webp",   flag: "🇵🇱" },
-  { name: "Kevin De Bruyne",     country: "Bélgica",     age: 34, caps: 108, goals: 28,  img: "/images/debruyne.webp",      flag: "🇧🇪" },
-  { name: "Neymar Jr",           country: "Brasil",      age: 34, caps: 128, goals: 79,  img: "/images/neymar.webp",        flag: "🇧🇷" },
-  { name: "Guillermo Ochoa",     country: "México",      age: 40, caps: 145, goals: 0,   img: "/images/ochoa.webp",        flag: "mx" },
-  { name: "Luis Suárez",         country: "Uruguay",     age: 39, caps: 142, goals: 68,  img: "/images/suarez.webp",        flag: "🇺🇾" },
-  { name: "Manuel Neuer",        country: "Alemania",    age: 40, caps: 124, goals: 0,   img: "/images/neuer.webp",         flag: "🇩🇪" },
-  { name: "Olivier Giroud",      country: "Francia",     age: 39, caps: 137, goals: 57,  img: "/images/giroud.webp",        flag: "🇫🇷" },
-  { name: "Keylor Navas",        country: "Costa Rica",  age: 39, caps: 127, goals: 0,   img: "/images/navas.webp",         flag: "🇨🇷" },
-  { name: "Antoine Griezmann",   country: "Francia",     age: 35, caps: 137, goals: 44,  img: "/images/griezmann.webp",     flag: "🇫🇷" },
-  { name: "Heung-min Son",        country: "Corea del Sur", age: 38, caps: 180, goals: 23,  img: "/images/son.webp",         flag: "🇰🇷" },
+  { name: "Lionel Messi",        country: "Argentina",      img: "/images/messi.webp",       flag: "ar" },
+  { name: "Cristiano Ronaldo",   country: "Portugal",       img: "/images/cr.webp",          flag: "pt" },
+  { name: "Luka Modrić",         country: "Croacia",        img: "/images/modric.webp",      flag: "hr" },
+  { name: "Robert Lewandowski",  country: "Polonia",        img: "/images/lewandowski.webp", flag: "pl" },
+  { name: "Kevin De Bruyne",     country: "Bélgica",        img: "/images/debruyne.webp",    flag: "be" },
+  { name: "Neymar Jr",           country: "Brasil",         img: "/images/neymar.webp",      flag: "br" },
+  { name: "Guillermo Ochoa",     country: "México",         img: "/images/ochoa.webp",       flag: "mx" },
+  { name: "Luis Suárez",         country: "Uruguay",        img: "/images/suarez.webp",      flag: "uy" },
+  { name: "Manuel Neuer",        country: "Alemania",       img: "/images/neuer.webp",       flag: "de" },
+  { name: "Olivier Giroud",      country: "Francia",        img: "/images/giroud.webp",      flag: "fr" },
+  { name: "Keylor Navas",        country: "Costa Rica",     img: "/images/navas.webp",       flag: "cr" },
+  { name: "Antoine Griezmann",   country: "Francia",        img: "/images/griezmann.webp",   flag: "fr" },
+  { name: "Heung-min Son",       country: "Corea del Sur",  img: "/images/son.webp",         flag: "kr" },
+  { name: "Mohamed Salah",       country: "Egipto",         img: "/images/salah.webp",       flag: "eg" },
+  { name: "Virgil van Dijk",     country: "Países Bajos",   img: "/images/vandijk.webp",     flag: "nl" },
+  { name: "Sadio Mané",          country: "Senegal",        img: "/images/mane.webp",        flag: "sn" },
+  { name: "James Rodríguez",     country: "Colombia",       img: "/images/james.webp",       flag: "co" },
+  { name: "Thibaut Courtois",    country: "Bélgica",        img: "/images/courtois.webp",    flag: "be" },
+  { name: "Casemiro",            country: "Brasil",         img: "/images/casemiro.webp",    flag: "br" },
+  { name: "N'Golo Kanté",        country: "Francia",        img: "/images/kante.webp",       flag: "fr" },
 ];
 ---
 
-<section class="relative bg-[#020617] text-white w-full py-32 overflow-hidden font-sans antialiased perspective-1000">
+<section class="relative bg-[#020617] text-white w-full py-32 overflow-hidden font-sans antialiased">
   
   <div class="absolute inset-0 pointer-events-none z-0">
     <div class="absolute top-0 left-1/4 w-[700px] h-[700px] bg-[#D4AF37]/[0.04] rounded-full blur-[140px]"></div>
@@ -26,7 +33,7 @@ const players = [
 
   <div class="relative max-w-7xl mx-auto px-6 lg:px-8 z-10">
 
-    <div id="hero-header" class="flex flex-col items-center text-center mb-24 opacity-0">
+    <div id="hero-header" class="flex flex-col items-center text-center mb-24">
       <h2 class="text-6xl md:text-9xl font-black uppercase leading-none tracking-tighter mb-6 select-none">
         <span class="block text-white/90">El Último</span>
         <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-white/70 to-white drop-shadow-[0_10px_30px_rgba(255,255,255,0.08)]">
@@ -49,69 +56,43 @@ const players = [
     </div>
 
     <div id="grid-players" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
-      {players.map((player, index) => (
+      {players.map((player) => (
         <div 
-          class="player-card opacity-0 translate-y-12 group relative bg-white/[0.03] border border-white/[0.08] overflow-hidden rounded-2xl cursor-pointer transition-all duration-300 ease-out preserve-3d backdrop-blur-sm"
-          style="aspect-ratio: 3/4; --accent: rgba(255,255,255,0.18); --shadow: rgba(255,255,255,0.08);"
+          class="player-card relative bg-white/[0.03] border border-white/[0.08] overflow-hidden rounded-2xl backdrop-blur-sm"
+          style="aspect-ratio: 3/4; --accent: rgba(255,255,255,0.18);"
         >
-          <div class="absolute inset-0 rounded-2xl border border-transparent group-hover:border-[var(--accent)] transition-colors duration-500 z-30 pointer-events-none"></div>
-
+          {/* Imagen estática, visible y a color directo (o puedes dejarle el grayscale quitando group-hover) */}
           <div class="absolute inset-0 z-10 overflow-hidden">
             <img
               src={player.img}
               alt={player.name}
-              class="w-full h-full object-cover object-top transition-all duration-700 ease-out scale-100 group-hover:scale-105 grayscale brightness-[0.6] group-hover:grayscale-0 group-hover:brightness-90"
+              class="w-full h-full object-cover object-top brightness-90"
               loading="lazy"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#040405] via-[#040405]/40 to-transparent transition-all duration-500 group-hover:via-[#040405]/20"></div>
-            <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[var(--shadow)] to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-500 mix-blend-screen"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#040405] via-[#040405]/50 to-transparent"></div>
           </div>
 
-          <div class="absolute top-4 right-4 z-20 flex flex-col items-end gap-1">
-            <div class="text-2xl filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-110">
-              {player.flag}
-            </div>
+          <div class="absolute top-4 right-4 z-20">
+            <img
+              src={`/flags/${player.flag}.svg`}
+              alt={player.country}
+              class="w-9 h-6 object-cover rounded shadow-[0_4px_12px_rgba(0,0,0,0.6)] border border-white/20"
+            />
           </div>
 
-          <div class="absolute bottom-0 left-0 right-0 z-20 p-5 md:p-6 transform transition-transform duration-500">
-            <p class="text-[9px] font-black tracking-[0.3em] uppercase text-white/40 mb-1 group-hover:text-white/60 transition-colors duration-300">
+          <div class="absolute bottom-0 left-0 right-0 z-20 p-5 md:p-6">
+            <p class="text-[9px] font-black tracking-[0.3em] uppercase text-white/60 mb-1">
               {player.country}
             </p>
-
-            <h3 class="text-lg md:text-xl font-black uppercase leading-tight tracking-tight text-white/90 group-hover:text-white transition-colors duration-300">
+            <h3 class="text-lg md:text-xl font-black uppercase leading-tight tracking-tight text-white">
               {player.name}
             </h3>
-
-            <div class="h-[2px] bg-[var(--accent)] mt-3 mb-2 w-0 group-hover:w-full transition-all duration-500 ease-out shadow-[0_0_10px_var(--accent)]"></div>
-
-            <div class="grid grid-cols-3 gap-2 pt-1 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-16 transition-all duration-500 ease-in-out">
-              <div class="text-left">
-                <p class="text-xs font-black text-white group-hover:text-white transition-colors duration-300 tabular-nums">{player.caps}</p>
-                <p class="text-[8px] uppercase tracking-wider text-white/40">Partidos</p>
-              </div>
-              {player.goals > 0 ? (
-                <div class="text-center border-x border-white/10 px-1">
-                  <p class="text-xs font-black text-white group-hover:text-white transition-colors duration-300 tabular-nums">{player.goals}</p>
-                  <p class="text-[8px] uppercase tracking-wider text-white/40">Goles</p>
-                </div>
-              ) : (
-                <div class="text-center border-x border-white/10 px-1">
-                  <p class="text-xs font-black text-white group-hover:text-white transition-colors duration-300 uppercase">G K</p>
-                  <p class="text-[8px] uppercase tracking-wider text-white/40">Portero</p>
-                </div>
-              )}
-              <div class="text-right">
-                <p class="text-xs font-black text-white group-hover:text-white transition-colors duration-300 tabular-nums">{player.age}</p>
-                <p class="text-[8px] uppercase tracking-wider text-white/40">Edad</p>
-              </div>
-            </div>
-
           </div>
         </div>
       ))}
     </div>
 
-    <div id="hero-footer" class="flex items-center justify-center gap-6 mt-24 opacity-0">
+    <div id="hero-footer" class="flex items-center justify-center gap-6 mt-24">
       <div class="h-px flex-1 max-w-xs bg-gradient-to-r from-transparent to-white/20"></div>
       <span class="text-[10px] font-black tracking-[0.4em] uppercase text-white/30 whitespace-nowrap">FIFA World Cup 2026</span>
       <div class="h-px flex-1 max-w-xs bg-gradient-to-l from-transparent to-white/20"></div>
@@ -119,92 +100,3 @@ const players = [
 
   </div>
 </section>
-
-<style is:global>
-  .perspective-1000 { perspective: 1000px; }
-  .preserve-3d { transform-style: preserve-3d; backface-visibility: hidden; }
-</style>
-
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  // 1. Animaciones de entrada cinematográfica (Stagger)
-  window.addEventListener("DOMContentLoaded", () => {
-    
-    // Animación del Header
-    gsap.to("#hero-header", {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      ease: "power4.out"
-    });
-
-    // Revelación fluida del Grid conforme haces Scroll
-    gsap.to(".player-card", {
-      opacity: 1,
-      y: 0,
-      stagger: {
-        amount: 0.6,
-        grid: "auto"
-      },
-      duration: 1.2,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: "#grid-players",
-        start: "top 80%",
-        toggleActions: "play none none none"
-      }
-    });
-
-    // Animación del Footer de la sección
-    gsap.to("#hero-footer", {
-      opacity: 1,
-      duration: 1,
-      delay: 0.5,
-      scrollTrigger: {
-        trigger: "#grid-players",
-        start: "bottom 90%"
-      }
-    });
-  });
-
-  const cards = document.querySelectorAll(".player-card");
-
-  cards.forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const mouseEvent = e as MouseEvent;
-      const rect = card.getBoundingClientRect();
-      const x = mouseEvent.clientX - rect.left; // Posición X dentro de la card
-      const y = mouseEvent.clientY - rect.top;  // Posición Y dentro de la card
-      
-      const xc = rect.width / 2;
-      const yc = rect.height / 2;
-      
-      const angleX = (yc - y) / 15; 
-      const angleY = (x - xc) / 15;
-
-      gsap.to(card, {
-        rotateX: angleX,
-        rotateY: angleY,
-        scale: 1.02,
-        duration: 0.3,
-        ease: "power2.out",
-        overwrite: "auto"
-      });
-    });
-
-    card.addEventListener("mouseleave", () => {
-      gsap.to(card, {
-        rotateX: 0,
-        rotateY: 0,
-        scale: 1,
-        duration: 0.6,
-        ease: "power3.out",
-        overwrite: "auto"
-      });
-    });
-  });
-</script>
